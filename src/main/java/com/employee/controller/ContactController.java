@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/employee")
 public class ContactController {
 
     @Autowired
@@ -28,27 +27,27 @@ public class ContactController {
 
     Logger logger = LoggerFactory.getLogger(ContactController.class);
 
-    @PostMapping("/add")
+    @PostMapping("/employee/add")
     public ResponseEntity<Contact> addContact(@Valid @RequestBody Contact contact) {
 //        return employeeService.addContact(contact);
         return new ResponseEntity<Contact>(employeeService.addContact(contact), HttpStatus.CREATED);
     }
 
-    @GetMapping("/getcontacts")
+    @GetMapping("/employee/getcontacts")
     public List<Contact> getAllContact() {
         return employeeService.getAllContacts();
     }
 
-    @GetMapping("/contacts/{id}")
+    @GetMapping("/employeecontacts/{id}")
     public Optional<Contact> getContact(@PathVariable int id) {
         return employeeService.getContact(id);
     }
 
-    @PutMapping("/contacts/{id}")
+    @PutMapping("/employee/contacts/{id}")
     public void updateContact(@RequestBody Contact contact, @PathVariable int id) {
         employeeService.updateContact(id, contact); }
 
-    @DeleteMapping("/contacts/{id}")
+    @DeleteMapping("/employee/contacts/{id}")
     public void deleteContact(@PathVariable int id) {
         employeeService.deleteContact(id);
     }

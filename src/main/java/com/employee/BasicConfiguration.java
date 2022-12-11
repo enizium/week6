@@ -51,6 +51,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers(HttpMethod.GET,"/info")
         		.antMatchers(HttpMethod.GET,"/employee/getcontacts")
                 .antMatchers(HttpMethod.POST, "/authenticate")
+                .antMatchers(HttpMethod.DELETE, "/employee/contacts/*")
         		.antMatchers(HttpMethod.POST,"/employee/add");
     }
 
